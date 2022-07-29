@@ -1,0 +1,659 @@
+CREATE DATABASE  IF NOT EXISTS `MiniSuper` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `MiniSuper`;
+
+
+CREATE TABLE `TipoProducto` (
+  `idTipoProducto` int NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  PRIMARY KEY (`idTipoProducto`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO `TipoProducto` VALUES (1,'Abarrotes'),(2,'Enlatados'),(3,'Lacteos'),(4,'Snacks'),(5,'Dulces'),(6,'Harinas'),(7,'Frutas'),(8,'Vegetales'),(9,'Bebidas'),(10, 'Bebidas alcoholicas'),(11,'Alimentos Preparados'),(12,'Automedicación'),(13,'Higiene Personal'),(14,'Uso Doméstico'),(15,'Helados'),(16,'Jardinería'),(17,'Otros Productos');
+
+
+CREATE TABLE `Categoria` (
+  `idCategoria` int NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  PRIMARY KEY (`idCategoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO `Categoria` VALUES (1,'Alimentos y Despensa'),(2,'Bebidas'),(3,'Cervezas,Vinos y Licores'),(4,'Dulces'),(5,'Mascotas'),(6,'Hogar y Limpieza'),(7,'Higienes y Cuidado Personal'),(8,'Farmacia'),(9,'Bebés');
+
+
+CREATE TABLE `Cliente` (
+  `idCliente` int NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) DEFAULT NULL,
+  `apellido1` varchar(45) DEFAULT NULL,
+  `apellido2` varchar(45) DEFAULT NULL,
+  `telefono` int DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `idciudad` int default null,
+  PRIMARY KEY (`idCliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+INSERT INTO `Cliente` VALUES(1,'Gloria','Méndez',' Rodríguez', 86690772, 'gmr@gmail.com',1 );
+INSERT INTO `Cliente` VALUES(2,'Amanda','Mena','Loría' , 15128389 , 'aml@gmail.com',1 );
+INSERT INTO `Cliente` VALUES(3,'Erick','Méndez ','Rojas' ,14193810 ,'emr@gmail.com',1);
+INSERT INTO `Cliente` VALUES(4,'Andres','Hidalgo','Ramírez' ,18201910,'ahr@gmail.com',1 );
+INSERT INTO `Cliente` VALUES(5,'Daniela','Mora' ,'Nikson',16291829 ,'dmn@gmail.com',1);
+INSERT INTO `Cliente` VALUES(6,'Josa','Cordoba' ,'Poll',130182810,'jcp@gmail.com',2 );
+INSERT INTO `Cliente` VALUES(7,'Flor','Mena','Corrales' ,13019282,'fmc@gmail.com',2 );
+INSERT INTO `Cliente` VALUES(8,'Cristian','Nodal','Matina' ,1302983,'cnm@gmail.com' ,2);
+INSERT INTO `Cliente` VALUES(9,'Daniel','Rojas','Rivas' ,12192830 ,'drr@gmail.com',2);
+INSERT INTO `Cliente` VALUES(10,'Ian','Mata' ,'León',140183910,'iml@gmail.com',2 );
+INSERT INTO `Cliente` VALUES(11,'Thiago','Hidalgo','Medina' ,19280111,'thm@gmail.com',2 );
+INSERT INTO `Cliente` VALUES(12,'Abigail','López','Araya' ,118129112,'ala@gmail.com',2 );
+INSERT INTO `Cliente` VALUES(13,'Andrea','Rosales','Lima' ,19938101 ,'arl@gmail.com',2);
+INSERT INTO `Cliente` VALUES(14,'Daniel','Muñoz','Torres' ,12928221 ,'dmt@gmail.com',3);
+INSERT INTO `Cliente` VALUES(15,'Sebastian','Douglas' ,'Ballestero',13290192,'sdb@gmail.com',3 );
+INSERT INTO `Cliente` VALUES(16,'Isabel','Douglas' ,'Cespedes',129201014,'idc@gmail.com',3 );
+INSERT INTO `Cliente` VALUES(17,'Daniel','Douglas', 'Zamora' ,1191023,'ddz@gmail.com',3 );
+INSERT INTO `Cliente` VALUES(18,'Ana','Mora' ,'Mata',19382013,'amm@gmail.com',3 );
+INSERT INTO `Cliente` VALUES(19,'Jose','Gúzman' ,'Hidalgo',13029810,'jgh@gmail.com',3 );
+INSERT INTO `Cliente` VALUES(20,'Gabriel','Morales' ,'Loría',15048302,'gml@gmail.com',4 );
+INSERT INTO `Cliente` VALUES(21,'Stacy','Lima','Rosales' ,14290332,'slr@gmail.com',4  );
+INSERT INTO `Cliente` VALUES(22,'Erick','Sánchez','López' ,17093022 ,'esl@gmail.com',4 );
+INSERT INTO `Cliente` VALUES(23,'Esmeralda','Chinchilla','Chinchilla',14038202,'ecc@gmail.com',4  );
+INSERT INTO `Cliente` VALUES(24,'Paula','Zamoran' ,'Méndez',18138504,'pzm@gmail.com' ,4 );
+INSERT INTO `Cliente` VALUES(25,'Paola','Torres' ,'Torres',19126812,'ptt@gmail.com',5 );
+INSERT INTO `Cliente` VALUES(26,'Sol','Mora','Hernández' ,12179302,'smh@gmail.com',5 );
+INSERT INTO `Cliente` VALUES(27,'Soul','Saénz','Mena' ,14987903,'ssm@gmail.com',5 );
+INSERT INTO `Cliente` VALUES(28,'Manuel','Solano','Sánchez' ,15940332,'mss@gmail.com',5 );
+INSERT INTO `Cliente` VALUES(29,'Catalina','Rojas','Mora' ,16029480,'crm@gmail.com',5 );
+INSERT INTO `Cliente` VALUES(30,'Javier','Trigueros','Mejías' ,1838926,'jtm@gmail.com',6 );
+INSERT INTO `Cliente` VALUES(31,'Carmen','Méndez ','Rodríguez' ,16892011 ,'cmr@gmail.com',6);
+INSERT INTO `Cliente` VALUES(32,'Flora','Hidalgo','Estrada' ,83738492,'fhe@gmail.com',6 );
+INSERT INTO `Cliente` VALUES(33,'Mauricio','Rodríguez','Curling'  ,17439580,'mrc@gmail.com',6 );
+INSERT INTO `Cliente` VALUES(34,'Leonardo','Méndez','Mora' ,17984567,'lmm@gmail.com',7 );
+INSERT INTO `Cliente` VALUES(35,'Adolfo','Curling','León' ,17546870,'acl@gmail.com',7  );
+INSERT INTO `Cliente` VALUES(36,'Gustavo','Curling','Guevara' ,15145321,'gcg@gmail.com',7  );
+INSERT INTO `Cliente` VALUES(37,'Edith','Zamora','Zúñiga' ,15124567 ,'ezz@gmail.com',7 );
+INSERT INTO `Cliente` VALUES(38,'Joyce','Loría','Guevara' ,15958372,'jlg@gmail.com',7  );
+INSERT INTO `Cliente` VALUES(39,'Isaac','Lépiz' ,'Matamores',16124352 ,'ilm@gmail.com',7 );
+INSERT INTO `Cliente` VALUES(40,'Emma','Méndez ','Montero' ,16654738,'emm@gmail.com',7 );
+
+
+CREATE TABLE `Ciudad` (
+  `idCiudad` int NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  PRIMARY KEY (`idCiudad`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+insert into Ciudad Values ( 1, 'San Pablo'),(2,'Santo Domingo'),(3,'San Luis'),(4, 'Santo Tomás'),(5,'Paracito'),(6,'San Joaquín'),(7,'Belén'),(8, 'Mercedes Norte');
+
+
+
+
+CREATE TABLE `Empleado` (
+  `idEmpleado` int NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) DEFAULT NULL,
+  `Apellido` varchar(45) DEFAULT NULL,
+  `Telefono` int DEFAULT NULL,
+  `idCategoria` int DEFAULT NULL,
+  PRIMARY KEY (`idEmpleado`),
+  KEY `FK_REL_DEP_EMP_idx` (`idCategoria`),
+  KEY `Nombre_index` (`Nombre`),
+  CONSTRAINT `FK_REL_DEP_EMP` FOREIGN KEY (`idCategoria`) REFERENCES `Categoria` (`idCategoria`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+INSERT INTO Empleado VALUES(1,'Anabel','Gonzalez',84472929,1 );
+INSERT INTO Empleado VALUES(2,'Roberto','Artavia' ,37820302, 2 );
+INSERT INTO Empleado VALUES(3,'Fernando','Ocampo', 38739222,3  );
+INSERT INTO Empleado VALUES(4,'Francisco','Chacón' ,28379302, 4 );
+INSERT INTO Empleado VALUES(5,'José','Rossi',73849921, 5  );
+INSERT INTO Empleado VALUES(6,'Grettel','López' ,38271823,6 );
+INSERT INTO Empleado VALUES(7,'Priscila','Villanueva' ,12224354,7 );
+INSERT INTO Empleado VALUES(8,'Cristhian','Soto',87657875,8  );
+INSERT INTO Empleado VALUES(9,'Juan','Muñoz' ,98787666,9  );
+INSERT INTO Empleado VALUES(10,'Simone','Bunse',74657665,1   );
+INSERT INTO Empleado VALUES(11,'Ananbel','Rodríguez' ,29475382,2  );
+INSERT INTO Empleado VALUES(12,'Sol','Echeverría' ,39874567,3  );
+INSERT INTO Empleado VALUES(13,'Luis','Guell' ,33432132,4  );
+INSERT INTO Empleado VALUES(14,'Francisco','Chacón' ,87677754,5  );
+INSERT INTO Empleado VALUES(15,'Abril','Méndez ' ,87789900,6  );
+INSERT INTO Empleado VALUES(16,'Gerardo','Corrales' ,98785512,7  );
+INSERT INTO Empleado VALUES(17,'Javier','Ferrero',71212345,8 );
+INSERT INTO Empleado VALUES(18,'Sherman','Roberts',65564356,9 );
+INSERT INTO Empleado VALUES(19,'Viviana','Santamaría',87763212,1   );
+INSERT INTO Empleado VALUES(20,'Gabriel','LLobet',32897732,2   );
+INSERT INTO Empleado VALUES(21,'Eduardo','Rodríguez',98321272,3 );
+INSERT INTO Empleado VALUES(22,'Sandro','Mora',98329384,4   );
+INSERT INTO Empleado VALUES(23,'Sandra','Umaña',72234344,5   );
+INSERT INTO Empleado VALUES(24,'Melanie','Sánchez' ,86676543,6  );
+INSERT INTO Empleado VALUES(25,'Andrés','Hidalgo',98877888,7   );
+INSERT INTO Empleado VALUES(26,'Amanda','Douglas' ,73234455,8  );
+INSERT INTO Empleado VALUES(27,'Manuel','Marín' ,81828181,9  );
+INSERT INTO Empleado VALUES(28,'Luis','Dávila' , 88998899, 1  );
+INSERT INTO Empleado VALUES(29,'Juan','Mena' , 77227733,2  );
+INSERT INTO Empleado VALUES(30,'Pablo','López' , 72333333,3  );
+INSERT INTO Empleado VALUES(31,'Erick','Meléndez', 87786612, 4   );
+INSERT INTO Empleado VALUES(32,'Lynda','Díaz', 98877888, 5  );
+INSERT INTO Empleado VALUES(33,'Francisco','Loría' , 82212121, 6 );
+INSERT INTO Empleado VALUES(34,'Lineth','Saborío', 72289921, 7);
+INSERT INTO Empleado VALUES(35,'Mariela','Mata', 756383921, 8   );
+INSERT INTO Empleado VALUES(36,'Daniela','Curling' , 93829282, 9 );
+INSERT INTO Empleado VALUES(37,'Marco','Morales' ,74639383, 1  );
+INSERT INTO Empleado VALUES(38,'Erick','López', 48480393, 2   );
+INSERT INTO Empleado VALUES(39,'Pablo','León', 48339202,3   );
+INSERT INTO Empleado VALUES(40,'Luz','Rojas' , 48493023,2);
+
+
+
+CREATE TABLE `Factura` (
+  `idFactura` int NOT NULL AUTO_INCREMENT,
+  `fecha` datetime DEFAULT NULL,
+  `idCliente` int DEFAULT NULL,
+  `idEmpleado` int DEFAULT NULL,
+  PRIMARY KEY (`idFactura`),
+  KEY `FK_REL_CLI_FAC_idx` (`idCliente`),
+  KEY `FK_REL_EMP_FAC_idx` (`idEmpleado`),
+  CONSTRAINT `FK_REL_CLI_FAC` FOREIGN KEY (`idCliente`) REFERENCES `Cliente` (`idCliente`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `FK_REL_EMP_FAC` FOREIGN KEY (`idEmpleado`) REFERENCES `Empleado` (`idEmpleado`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO `Factura` VALUES (1,'2021-10-16 00:00:00',6,2),(2,'2021-11-29 00:00:00',5,3),(3,'2028-01-22 00:00:00',10,3),(4,'2019-02-20 00:00:00',3,1),(5,'2021-03-07 00:00:00',7,3),(6,'2021-03-16 00:00:00',9,2),(7,'2021-09-06 00:00:00',11,4),(8,'2021-11-09 00:00:00',1,2),(9,'2021-11-09 00:00:00',7,3),(10,'2021-12-05 00:00:00',9,3),(11,'2018-07-18 00:00:00',3,5),(12,'2018-08-01 00:00:00',4,1),(13,'2018-08-03 00:00:00',4,4),(14,'2019-01-17 00:00:00',1,3),(15,'2019-01-22 00:00:00',7,3),(16,'2019-02-08 00:00:00',9,4),(17,'2019-03-29 00:00:00',3,4),(18,'2019-06-14 00:00:00',6,4),(19,'2019-07-14 00:00:00',1,5),(20,'2019-07-17 00:00:00',9,1);
+
+
+
+CREATE TABLE `Producto` (
+  `idProducto` int NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `idTipoProducto` int DEFAULT NULL,
+  `Precio` int DEFAULT NULL,
+  PRIMARY KEY (`idProducto`),
+  KEY `Nombre_index` (`Nombre`),
+  KEY ` FK_REL_CATE_PRODU_idx` (`idTipoProducto`),
+  CONSTRAINT ` FK_REL_CATE_PRODU` FOREIGN KEY (`idTipoProducto`) REFERENCES `TipoProducto` (`idTipoProducto`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+INSERT INTO Producto VALUES(1,'Leche Condensada', 3, 530);
+INSERT INTO Producto VALUES(2,'Pan Cuadrado Light', 6, 1800);
+INSERT INTO Producto VALUES(3,'Mantequilla', 3, 1380);
+INSERT INTO Producto VALUES(4,'Queso', 3, 2500);
+INSERT INTO Producto VALUES(5,'Sardinas', 2, 890);
+INSERT INTO Producto VALUES(6,'Atún en agua', 2, 970);
+INSERT INTO Producto VALUES(7,'Atún en aceite', 2, 750);
+INSERT INTO Producto VALUES(8,'Aderezo', 1, 670);
+INSERT INTO Producto VALUES(9,'Café', 1, 2100);
+INSERT INTO Producto VALUES(10,'Azúcar', 1, 1560);
+INSERT INTO Producto VALUES(11,'Cereal', 1, 2800);
+INSERT INTO Producto VALUES(12,'Sal', 1, 290);
+INSERT INTO Producto VALUES(13,'Huevo', 1,2800);
+INSERT INTO Producto VALUES(14,'Té', 1, 2750);
+INSERT INTO Producto VALUES(15,'Yogurt', 3, 2250);
+INSERT INTO Producto VALUES(16,'Malvaviscos', 5, 1800);
+INSERT INTO Producto VALUES(17,'Jugos', 9, 1200);
+INSERT INTO Producto VALUES(18,'Agua Natural', 9, 3500);
+INSERT INTO Producto VALUES(19,'Tequila', 10, 8900);
+INSERT INTO Producto VALUES(20,'Chiles', 8, 450);
+INSERT INTO Producto VALUES (21, 'Papas',4,1000),(22,'Palomitas',4,1000),(23,'Frituras de maíz',4,1000),(24,'Cacahuates',4,1000),(25,'Botanas saladas',4,1000),(26,'Barras alimenticias',4,1000),(27,'Dulces enchilados',5,3000),(28,'Chocolate de mesa',5,2000),(29,'Chocolate en polvo',5,700),(30,'Chocolates',5,800),(31,'Gomas de mascar',5,50),(32,'Tortillas de harina/maíz',6,700),(33,'Galletas dulces',6,2500),(34,'Galletas saladas',6,1800),(35,'Pastelillos',6,1500),(36,'Pan dulce',6,1800),(37,'Aguacates',7,2000),(38,'Ajos',8,400),(39,'Cebollas',8,500),(40,'Papas',8,1700);
+
+
+
+CREATE TABLE `Detalle_Factura` (
+  `idDetalle` int NOT NULL AUTO_INCREMENT,
+  `idFactura` int DEFAULT NULL,
+  `idProducto` int DEFAULT NULL,
+  `Precio` decimal(10,2) DEFAULT NULL,
+  `Cantidad` int DEFAULT NULL,
+  PRIMARY KEY (`idDetalle`),
+  KEY `FK_REL_FAC_DET_idx` (`idFactura`),
+  KEY `FK_REL_PRO_DET_idx` (`idProducto`),
+  CONSTRAINT `FK_REL_FAC_DET` FOREIGN KEY (`idFactura`) REFERENCES `Factura` (`idFactura`),
+  CONSTRAINT `FK_REL_PRO_DET` FOREIGN KEY (`idProducto`) REFERENCES `Producto` (`idProducto`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO `detalle_Factura` VALUES (4,1,5,850.00,1),(5,1,2,1200.00,1),(6,1,4,1000.00,4),(7,1,9,760.00,2),(8,2,5,850.00,1),(9,2,3,800.00,1),(10,2,8,400.00,4),(11,3,10,930.00,1),(12,3,2,1200.00,2),(13,3,6,600.00,3),(14,4,7,2300.00,1),(15,5,5,850.00,1),(16,5,10,930.00,4),(17,5,9,760.00,4),(18,5,11,2890.00,2),(19,5,1,2500.00,1),(20,6,7,2300.00,3),(21,6,5,850.00,4),(22,6,6,600.00,4),(23,6,8,400.00,4),(24,7,7,2300.00,2),(25,7,8,400.00,1),(26,7,2,1200.00,2),(27,7,4,1000.00,2),(28,7,10,930.00,1),(29,8,7,2300.00,2),(30,8,5,850.00,4),(31,8,6,600.00,4),(32,9,8,400.00,1),(33,9,5,850.00,2),(34,9,7,2300.00,4),(35,10,10,930.00,3),(36,11,6,600.00,1),(37,11,10,930.00,1),(38,11,9,760.00,4),(39,12,3,800.00,1),(40,12,6,600.00,1),(41,12,4,1000.00,4),(42,12,11,2890.00,1),(43,13,10,930.00,4),(44,14,5,850.00,3),(45,14,8,400.00,4),(46,14,2,1200.00,1),(47,15,7,2300.00,4),(48,16,7,2300.00,3),(49,16,5,850.00,1),(50,16,4,1000.00,1),(51,16,9,760.00,4),(52,17,8,400.00,1),(53,18,1,2500.00,1),(54,18,3,800.00,2),(55,18,10,930.00,4),(56,19,1,2500.00,1),(57,19,10,930.00,2),(58,19,4,1000.00,1),(59,19,8,400.00,4),(60,20,6,600.00,3),(61,20,7,2300.00,1);
+
+/*Relación Ciudad- Cliente*/
+
+ALTER TABLE `MiniSuper`.`Cliente` 
+ADD INDEX `cliente_ciudad_FK_idx` (`idciudad` ASC) VISIBLE;
+;
+ALTER TABLE `MiniSuper`.`Cliente` 
+ADD CONSTRAINT `cliente_ciudad_FK`
+  FOREIGN KEY (`idciudad`)
+  REFERENCES `MiniSuper`.`Ciudad` (`idCiudad`)
+  ON DELETE RESTRICT
+  ON UPDATE CASCADE;
+
+INSERT INTO `MiniSuper`.`Cliente` (`idCliente`, `Nombre`, `apellido1`, `apellido2`, `telefono`, `email`, `idciudad`) VALUES ('41', 'Andres', 'Masis', 'Morales', '38642921', 'amm@gmail.com', '7');
+INSERT INTO `MiniSuper`.`Cliente` (`idCliente`, `Nombre`, `apellido1`, `apellido2`, `telefono`, `email`, `idciudad`) VALUES ('42', 'Juan', 'Perez', 'Muñoz', '2837291', 'jpm@gmail.com', '7');
+INSERT INTO `MiniSuper`.`Cliente` (`idCliente`, `Nombre`, `apellido1`, `apellido2`, `telefono`, `email`, `idciudad`) VALUES ('43', 'Leonardo', 'Méndez', 'Loría', '28739201', 'lml@gmail.com', '6');
+INSERT INTO `MiniSuper`.`Cliente` (`idCliente`, `Nombre`, `apellido1`, `apellido2`, `telefono`, `email`, `idciudad`) VALUES ('44', 'Leah', 'López', 'Lima', '39382901', 'lll@gmail.com', '5');
+INSERT INTO `MiniSuper`.`Cliente` (`idCliente`, `Nombre`, `apellido1`, `apellido2`, `telefono`, `email`) VALUES ('45', 'Ian', 'Hernández', 'Cedeño', '22938191', 'ihc@gmail.com');
+
+/*Realizar al menos 5 actualizaciones a los registros seleccionados(Debe venir los
+updates en el archivo .sql que debe de entregar)*/
+
+UPDATE `MiniSuper`.`Producto` SET `Precio` = '670' WHERE (`idProducto` = '1');
+UPDATE `MiniSuper`.`Producto` SET `Precio` = '1900' WHERE (`idProducto` = '2');
+UPDATE `MiniSuper`.`Producto` SET `Precio` = '1450' WHERE (`idProducto` = '3');
+UPDATE `MiniSuper`.`Producto` SET `Precio` = '1450' WHERE (`idProducto` = '4');
+UPDATE `MiniSuper`.`Producto` SET `Precio` = '1100' WHERE (`idProducto` = '5');
+
+/*Eliminar al menos 5 registros seleccionados(Debe venir los delete en el archivo
+.sql que debe de entregar) */
+
+Delete from Producto where idProducto in (35,36,37,38,39);
+
+
+/*Se deben realizar al menos 25 consultas simples (A una sola tabla), además de
+la descripción de cada consulta (Las consultas y el detalle de lo que hace cada
+consulta debe venir en el archivo .sql a entregar)*/
+
+/*Seleccione el nombre del producto que tenga id = 4*/
+
+select Nombre from TipoProducto where idTipoProducto = 4;
+
+/*Seleccione el precio del producto con id igual a 7*/
+select Precio from Producto where idProducto = 7;
+
+/*Seleccione el nombre y primer apellido del empleado con teléfono que empiece en 1*/
+select nombre, apellido as apellido from Empleado where telefono like '1%';
+
+/*Seleccione el nombre y primer apellido del cliente que vive en Belén*/
+select nombre, apellido1 as apellido from Cliente where idciudad = 7;
+
+/*Seleccione el nombre y el primer apellido donde el correo empiece con g*/
+select nombre, apellido1 as apellido from Cliente where email like 'g%';
+
+/*Seleccione todo acerca de una factura del cliente Josa Cordoba*/
+select * from factura where idcliente = 6;
+
+/*Seleccione todo acerca de una factura del cliente con id igual a 7*/
+select * from factura where idcliente = 7;
+
+/*Seleccione todo acerca de una factura donde el precio sea mayor a 500*/
+select * from detalle_factura where Precio > 500;
+
+/*Seleccione todo acerca de una factura donde el precio sea menor a 500*/
+select * from detalle_factura where Precio < 500;
+
+/*Seleccione todo acerca de un empleado donde el id Categoria sea 6*/
+select * from Empleado where idCategoria = 6;
+
+/*Seleccione la cantidad de una factura donde el id del producto sea 2*/
+select idProducto, cantidad from detalle_factura where idProducto = 2;
+
+/*Seleccione el precio una factura donde el id del producto sea 12*/
+select Precio from detalle_factura where idFactura = 12;
+
+/*Seleccione el nombre de un producto donde el precio sea mayor a 2500*/
+select Nombre from Producto where Precio > 2500;
+
+/*Seleccione el nombre de un producto donde el precio sea menor a 1500*/
+select Nombre from Producto where Precio < 1500;
+
+/*Seleccione el nombre y primer apellido del cliente donde el telefono termine con 8*/
+select nombre, apellido1 from cliente where telefono like '%8';
+
+/*Seleccione el nombre de la Categoria donde id de la Categoria es 5*/
+select Nombre from Categoria where idCategoria = 5;
+
+/*Seleccione el nombre y primer apellido del cliente donde el telefono tenga el 81*/
+select nombre, apellido1 from cliente where telefono like '%81%';
+
+/*Seleccione el nombre y apellido de la tabla empleadi donde apellido termine con n*/
+select nombre, apellido from Empleado where apellido like '%n';
+
+/*Seleccione el nombre de la ciudad, donde el id de la ciudad sea 4*/
+select Nombre from Ciudad where idciudad = 4;
+
+/*Seleccione todo sobre la tabla producto, donde el id del tipo de producto sea igual a abarrotes*/
+select * from Producto where idTipoProducto = 1;
+
+/*Seleccion todo acerca de la tabla cliente donde el id de ciudad no sea 3*/
+select * from cliente where idciudad not in (3);
+
+/*Seleccion todo acerca de la tabla cliente donde el id de ciudad no sea 5*/
+select * from cliente where idciudad not in (5);
+
+/*Seleccion todo acerca de la tabla empleado donde el id de Categoria no sea 1*/
+select * from empleado where idCategoria not in (1);
+
+/*Seleccion todo acerca de la tabla producto donde el id del tipo de producto no sea 3*/
+select * from Producto where idTipoProducto not in (3);
+
+/*Seleccion todo acerca del cliente donde el apellido sea Méndez*/
+select * from cliente where apellido1= 'Méndez' ;
+
+/*INNER JOIN*/
+
+/*Seleccione el nombre y apellido de los empleados con facturas*/
+SELECT distinct Nombre, Apellido
+FROM Empleado
+INNER JOIN Factura
+ON Empleado.idEmpleado = Factura.idEmpleado;
+
+SELECT Cliente.Nombre, apellido1, apellido2 from Cliente
+INNER JOIN Ciudad
+ON Cliente.idciudad = Ciudad.idCiudad;
+
+SELECT Cliente.Nombre, apellido1
+FROM Cliente
+INNER JOIN Factura
+ON Cliente.idCliente = Factura.idCliente
+where Factura.idCliente = 10;
+
+SELECT Cantidad, Precio
+FROM Detalle_Factura
+INNER JOIN Factura
+ON Detalle_Factura.idFactura = Factura.idFactura;
+
+
+SELECT distinct Producto.Nombre, Cantidad,Detalle_Factura.Precio
+FROM Detalle_Factura
+INNER JOIN Producto
+ON Detalle_Factura.idProducto= Producto.idProducto;
+
+SELECT Producto.Nombre, Cantidad, Detalle_Factura.Precio
+FROM Detalle_Factura
+INNER JOIN Producto
+ON Detalle_Factura.idProducto= Producto.idProducto
+Where Detalle_Factura.Precio > 1000 ;
+
+
+SELECT Producto.Nombre, Cantidad, Detalle_Factura.Precio
+FROM Detalle_Factura
+INNER JOIN Producto
+ON Detalle_Factura.idProducto= Producto.idProducto
+Where Detalle_Factura.Precio <= 5000 ;
+
+SELECT Nombre, Apellido, fecha
+FROM Empleado
+INNER JOIN Factura
+ON Empleado.idEmpleado = Factura.idEmpleado;
+
+
+SELECT Empleado.Nombre, Apellido
+FROM Empleado
+INNER JOIN Categoria
+ON Empleado.idCategoria = Categoria.idCategoria;
+
+
+SELECT Empleado.Nombre, Apellido
+FROM Empleado
+INNER JOIN Categoria
+ON Empleado.idCategoria = Categoria.idCategoria
+where Empleado.idCategoria = 5;
+
+/*Left Join*/
+select cl.nombre as nombre, ci.nombre as ciudad 
+from cliente cl 
+left join ciudad ci on ci.idciudad = cl.idciudad
+where telefono like '%6';
+
+
+select cl.nombre as nombre, ci.nombre as ciudad 
+from cliente cl 
+left join ciudad ci on ci.idciudad = cl.idciudad
+where telefono like '%23%';
+
+select cl.nombre as nombre, ci.nombre as ciudad 
+from cliente cl 
+left join ciudad ci on ci.idciudad = cl.idciudad
+where ci.nombre = 'Belén';
+
+select cl.nombre as nombre, ci.nombre as ciudad 
+from cliente cl 
+left join ciudad ci on ci.idciudad = cl.idciudad
+where ci.nombre like '%N';
+
+select p.nombre as nombre, p.precio as precio, t.nombre as 'tipo producto' 
+from producto p 
+left join TipoProducto t on p.idTipoProducto = t.idTipoProducto 
+where p.precio > 2500;
+
+
+select p.nombre as nombre, p.precio as precio, t.nombre as 'tipo producto' 
+from producto p 
+left join TipoProducto t on p.idTipoProducto = t.idTipoProducto 
+where p.precio = 2000;
+
+select * from factura f 
+left join detalle_factura df on f.idFactura = df.idFactura 
+where df.cantidad < 3;
+
+select e.nombre as nombre, e.telefono as contacto, c.nombre as Categoria 
+from empleado e 
+left join Categoria c on c.idCategoria = e.idCategoria
+ where e.telefono like '%85%';
+
+select e.nombre as nombre, e.telefono as contacto, c.nombre as Categoria 
+from empleado e 
+left join Categoria c on c.idCategoria = e.idCategoria
+ where e.telefono like '%9';
+
+select e.nombre as nombre, e.telefono as contacto, c.nombre as Categoria 
+from empleado e 
+left join Categoria c on c.idCategoria = e.idCategoria
+ where e.nombre like 'L%';
+
+
+
+
+/*Right Join*/
+select cl.nombre as nombre, ci.nombre as ciudad from cliente cl right join ciudad ci on ci.idciudad = cl.idciudad where telefono like '%6';
+
+select cl.nombre as nombre, ci.nombre as ciudad from cliente cl right join ciudad ci on ci.idciudad = cl.idciudad where telefono like '3%';
+
+select p.nombre as nombre, p.precio as precio, t.nombre as 'tipo producto' from producto p right join TipoProducto t on p.idTipoProducto = t.idTipoProducto where p.precio > 2500;
+
+select p.nombre as nombre, p.precio as precio, t.nombre as 'tipo producto' from producto p right join TipoProducto t on p.idTipoProducto = t.idTipoProducto where p.precio < 100;
+
+select * from factura f right join detalle_factura df on f.idFactura = df.idFactura where df.precio > 2000;
+
+select e.nombre as nombre, e.telefono as contacto, c.nombre as Categoria from empleado e right join Categoria c on e.idcategoria = c.idCategoria where e.apellido like '%r';
+
+select e.nombre as nombre, e.telefono as contacto, c.nombre as Categoria from empleado e right join Categoria c on e.idCategoria = c.idCategoria where c.nombre like 'h%';
+
+select * from factura f right join detalle_factura df on f.idFactura = df.idFactura where df.cantidad < 10;
+
+select c.nombre as nombre, f.fecha as 'fecha compra' from cliente c right join factura f on f.idcliente = c.idcliente where c.idciudad = 4;
+
+select c.nombre as nombre, f.fecha as 'fecha compra' from cliente c right join factura f on f.idcliente = c.idcliente where c.apellido2 like '%es%';
+
+/*Subconsultas*/
+
+select idFactura, df.precio, p.nombre from detalle_factura df, producto p where idTipoProducto not in (select idTipoProducto from TipoProducto where nombre like 'l%');
+
+select nombre from cliente where idciudad in (select idciudad from ciudad where nombre like '%e%');
+
+select nombre from empleado where idCategoria = (select idCategoria from Categoria where nombre like '%ene%');
+
+select nombre, telefono from empleado where idempleado not in (select idempleado from factura where idcliente = 6);
+
+select fecha from factura where idempleado  in (select idempleado from empleado where idCategoria = 3);
+
+select fecha from factura where idempleado in (select idempleado from empleado where idCategoria = 1);
+
+select fecha from factura where idcliente in  (select idcliente from cliente where idciudad = 3);
+
+select fecha from factura where idcliente in (select idcliente from cliente where idciudad = 7);
+
+select cantidad, precio from detalle_factura where idProducto not in (select idProducto from producto where precio > 1000);
+
+select cantidad, precio from detalle_factura where idProducto not in (select idProducto from producto where precio < 100);
+
+/* TRIGGERS */
+
+DELIMITER $$
+create trigger nuevo_cliente 
+before insert on Cliente 
+for each row
+begin
+	if new.Nombre like ' %' then 
+		set new.Nombre = ltrim(new.Nombre);
+	elseif new.Nombre like '% ' then 
+		set new.Nombre = rtrim(new.Nombre);
+	elseif new.apellido1 like ' %' then 
+		set new.apellido1 = ltrim(new.apellido1);
+	elseif new.apellido1 like '% ' then 
+		set new.apellido1 = rtrim(new.apellido1);
+  elseif new.apellido2 like ' %' then 
+		set new.apellido2 = ltrim(new.apellido2);
+	elseif new.apellido2 like '% ' then 
+		set new.apellido2 = rtrim(new.apellido2);
+	end if;
+end $$
+DELIMITER ;
+
+DELIMITER $$
+create trigger update_cliente 
+before update on Cliente 
+for each row
+begin
+	set new.Nombre = UPPER(new.Nombre);
+    set new.apellido1 = UPPER(new.apellido1);
+    set new.apellido2 = UPPER(new.apellido2);
+end $$
+DELIMITER ;
+
+DELIMITER $$
+create trigger nuevo_empleado
+before insert on Empleado 
+for each row
+begin
+	if new.Nombre like ' %' then 
+		set new.Nombre = ltrim(new.Nombre);
+	elseif new.Nombre like '% ' then 
+		set new.Nombre = rtrim(new.Nombre);
+	end if;
+end $$
+DELIMITER ;
+
+DELIMITER $$
+create trigger update_empleado
+before insert on Empleado 
+for each row
+begin
+	set new.Nombre = LOWER(new.Nombre);
+end $$
+DELIMITER ;
+
+DELIMITER $$
+create trigger antes_borrar_factura
+before delete on Factura
+begin
+	signal sqlstate '45000' ;
+    set message_text = 'Acción no permitida';
+end
+DELIMITER ;
+
+
+/* PROC ALMACENADOS */
+
+-- Dado el id del cliente retornar totales por factura
+
+DELIMITER $$
+CREATE PROCEDURE `proc_total_por_cliente` (IN id_cliente int)
+BEGIN
+  select sum(Precio) as 'Total', idFactura
+  from Detalle_Factura
+  where idFactura in (select idFactura from Factura where idCliente = id_cliente)
+  group by idFactura;
+
+END$$
+DELIMITER ;
+
+-- Dado el id del empleado retornar el total por factura
+DELIMITER $$
+CREATE PROCEDURE `proc_total_por_empleado` (IN id_empleado int)
+BEGIN
+  select sum(Precio) as 'Total', idFactura
+  from Detalle_Factura
+  where idFactura in (select idFactura from Factura where idEmpleado = id_empleado)
+  group by idFactura;
+
+END$$
+DELIMITER ;
+
+-- Dado el id de una ciudad retornar quienes habitan en ella
+
+DELIMITER $$
+CREATE PROCEDURE `proc_habitantes_ciudad` (IN id_ciudad int)
+BEGIN
+
+	select Nombre, apellido1
+    from Cliente
+    where idCiudad = id_ciudad;
+
+END$$
+DELIMITER ;
+
+-- Dado un id de ciudad determinar el numero de habitantes
+
+DELIMITER $$
+CREATE PROCEDURE `proc_habitantes_por_ciudad` (IN id_ciudad int)
+BEGIN
+
+	select count(*) as 'Total de habitantes'
+    from Cliente
+    where idCiudad = id_ciudad;
+
+END$$
+DELIMITER ;
+
+-- Actualizar el precio de un producto
+
+DELIMITER $$
+CREATE PROCEDURE `proc_actualiza_precio` (IN id_producto int, in new_precio int)
+BEGIN
+
+  update Producto
+  set Precio = new_precio
+  where idProducto = id_producto;
+
+END$$
+DELIMITER ;
+
+/* VIEWS */
+
+CREATE  OR REPLACE VIEW `Topdecompras` AS
+select c.Nombre as Cliente , Max(d.Cantidad) as Cantidad
+from Factura f
+inner join Cliente c on c.idCliente= f.idCliente
+inner join Detalle_Factura d on f.idFactura = d.idFactura
+group by c.Nombre;
+
+CREATE VIEW `Ciudadquemasnosvisita` AS
+select c.Nombre as Ciudad, count(cl.idCliente) as Cantidad_de_clientes
+from cliente cl
+join Factura f on f.idCliente= cl.idCliente
+join Ciudad c on c.idCiudad = cl.idciudad
+group by c.Nombre;
+
+CREATE  OR REPLACE VIEW `empleadoconmasventas` AS
+select e.Nombre as Empleado , count( f.idFactura) as cantidad_de_ventas
+from Empleado e
+join Factura f on f.idEmpleado= e.idEmpleado
+group by e.Nombre;
+
+USE `MiniSuper`;
+CREATE  OR REPLACE VIEW `Productosmasvendidos` AS
+select p.Nombre , d.cantidad
+from Producto p
+join Detalle_Factura d on d.idProducto= p.idProducto
+order by d.cantidad desc;
+
+ USE `MiniSuper`;
+CREATE  OR REPLACE VIEW `Cantidadempleadosporcategoria` AS
+select c.Nombre as Categoria, count(e.idEmpleado) as Cantidad_de_empleados
+from Categoria c
+join Empleado e on e.idcategoria= c.idcategoria
+group by c.Nombre;
+
+
+
